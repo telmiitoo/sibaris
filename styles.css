@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIBARIS CAFE SEVILLA - DESIGN SYSTEM & PREMIUM STYLESHEET
+   SIBARIS CAFE SEVILLA - TYPOGRAPHIC DESIGN SYSTEM & STYLESHEET
    Author: Professional UX/UI Web Design Studio
    ========================================================================== */
 
@@ -40,11 +40,10 @@
     --border-radius-lg: 16px;
     --border-radius-xl: 24px;
     
-    /* Shadows & Glows */
-    --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.02);
-    --shadow-medium: 0 10px 30px rgba(31, 31, 31, 0.05);
-    --shadow-premium: 0 20px 40px rgba(111, 78, 55, 0.06);
-    --shadow-glow: 0 8px 30px rgba(184, 137, 90, 0.12);
+    /* Shadows */
+    --shadow-subtle: 0 4px 20px rgba(111, 78, 55, 0.02);
+    --shadow-medium: 0 10px 30px rgba(31, 31, 31, 0.04);
+    --shadow-premium: 0 20px 40px rgba(111, 78, 55, 0.05);
     
     /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -53,10 +52,6 @@
     /* Z-Indices */
     --z-header: 100;
     --z-mobile-menu: 90;
-    --z-lightbox: 1000;
-    
-    /* Carousel gap setting (keep synchronized with app.js offset) */
-    --slider-gap: 24px;
 }
 
 /* --------------------------------------------------------------------------
@@ -81,12 +76,6 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
 }
 
 a {
@@ -161,9 +150,9 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Grids */
-.grid-2 {
+.grid-2-about {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: var(--space-xl);
     align-items: center;
 }
@@ -285,15 +274,15 @@ a:focus-visible, button:focus-visible {
 }
 
 .reveal-up {
-    transform: translateY(50px);
+    transform: translateY(40px);
 }
 
 .reveal-left {
-    transform: translateX(-50px);
+    transform: translateX(-40px);
 }
 
 .reveal-right {
-    transform: translateX(50px);
+    transform: translateX(40px);
 }
 
 .reveal-fade.active {
@@ -315,11 +304,6 @@ a:focus-visible, button:focus-visible {
     transform: translateX(0);
 }
 
-/* Delay modifiers */
-.delay-1 { transition-delay: 0.15s; }
-.delay-2 { transition-delay: 0.3s; }
-.delay-3 { transition-delay: 0.45s; }
-
 /* --------------------------------------------------------------------------
    5. HEADER NAVIGATION
    -------------------------------------------------------------------------- */
@@ -329,7 +313,7 @@ a:focus-visible, button:focus-visible {
     left: 0;
     width: 100%;
     height: 90px;
-    background-color: rgba(250, 248, 245, 0.8);
+    background-color: rgba(250, 248, 245, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(217, 198, 176, 0.15);
@@ -441,63 +425,66 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   6. HERO SECTION
+   6. HERO SECTION (DARK COFFEE ATMOSPHERIC GRADIENT - ZERO PHOTOS)
    -------------------------------------------------------------------------- */
-.hero {
+.hero-typographic {
     position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
+    background: linear-gradient(135deg, #1A120B 0%, #3B2A1E 100%);
     overflow: hidden;
 }
 
-.hero-parallax-bg {
+/* Ambient glow details to make it live and moody */
+.hero-typographic::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 130%; /* Expanded for parallax room */
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    z-index: 1;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(184, 137, 90, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
 }
 
-.hero-overlay {
+.hero-typographic::after {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(31, 31, 31, 0.3) 0%, rgba(31, 31, 31, 0.7) 100%);
-    z-index: 2;
+    bottom: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(111, 78, 55, 0.2) 0%, rgba(0, 0, 0, 0) 75%);
+    pointer-events: none;
 }
 
-.hero-content {
+.hero-content-typographic {
     position: relative;
     z-index: 3;
     color: var(--color-bg-white);
-    max-width: 900px;
+    max-width: 950px;
     text-align: center;
     margin-top: 60px;
 }
 
-.hero-title {
+.hero-title-typographic {
     font-family: var(--font-heading);
-    font-size: 5.25rem;
+    /* Golden details color matches premium brass style */
+    color: var(--color-bg-white);
+    font-size: 5.5rem;
     font-weight: 300;
     line-height: 1.1;
     margin-bottom: var(--space-md);
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     letter-spacing: -0.01em;
 }
 
-.hero-subtitle {
+.hero-subtitle-typographic {
     font-size: 1.35rem;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 680px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 720px;
     margin: 0 auto var(--space-lg);
     line-height: 1.6;
 }
@@ -530,24 +517,22 @@ a:focus-visible, button:focus-visible {
 .btn-secondary-hero {
     background-color: transparent;
     color: var(--color-bg-white);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary-hero:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.7);
     transform: translateY(-3px);
 }
 
-.hero-scroll-indicator {
+.hero-scroll-indicator-typographic {
     position: absolute;
     bottom: var(--space-lg);
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -558,7 +543,7 @@ a:focus-visible, button:focus-visible {
     animation: bounce 2s infinite;
 }
 
-.hero-scroll-indicator i {
+.hero-scroll-indicator-typographic i {
     width: 16px;
     height: 16px;
 }
@@ -576,502 +561,125 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   7. ABOUT US & STATISTICS SECTION
+   7. ABOUT US SECTION (CLEAN DOUBLE COLUMN FEATURES)
    -------------------------------------------------------------------------- */
-.about-content {
+.about-content-full {
     padding-right: var(--space-md);
 }
 
-.about-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
-    margin-top: var(--space-lg);
-}
-
-.stat-card {
-    background-color: var(--color-bg-white);
-    padding: var(--space-md) var(--space-sm);
-    border-radius: var(--border-radius-md);
-    border: 1px solid rgba(217, 198, 176, 0.2);
-    box-shadow: var(--shadow-subtle);
-    text-align: center;
-    transition: var(--transition-fast);
-}
-
-.stat-card:hover {
-    border-color: var(--color-detail);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-medium);
-}
-
-.stat-num {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.35rem;
-    font-weight: 700;
-    color: var(--color-cafe);
-    line-height: 1;
-    margin-bottom: var(--space-xs);
-}
-
-.stat-lbl {
-    display: block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-text-muted);
-    font-weight: 600;
-}
-
-.about-image-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.about-image {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-medium);
-    border: 1px solid rgba(217, 198, 176, 0.25);
-    z-index: 2;
-    position: relative;
-}
-
-.about-image-decor {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--border-radius-lg);
-    border: 2px solid var(--color-beige);
-    z-index: 1;
-    pointer-events: none;
-    transition: var(--transition-smooth);
-}
-
-.about-image-wrapper:hover .about-image-decor {
-    transform: translate(-10px, -10px);
-    border-color: var(--color-detail);
-}
-
-/* --------------------------------------------------------------------------
-   8. SPECIALTIES SECTION (GRID & PREMIUM CARDS)
-   -------------------------------------------------------------------------- */
-.specialty-card {
-    background-color: var(--color-bg-white);
-    border-radius: var(--border-radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-subtle);
-    border: 1px solid rgba(217, 198, 176, 0.15);
-    transition: var(--transition-smooth);
+.about-highlights-list {
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.specialty-img-container {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-}
-
-.specialty-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-smooth);
-}
-
-.specialty-info {
-    padding: var(--space-md) var(--space-lg) var(--space-lg);
-    text-align: center;
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.specialty-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: var(--space-xs);
-}
-
-.specialty-info h3 {
-    font-family: var(--font-heading);
-    font-size: 1.85rem;
-    font-weight: 400;
-    margin-bottom: var(--space-xs);
-    color: var(--color-cafe);
-    letter-spacing: -0.01em;
-}
-
-.specialty-info p {
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    font-weight: 300;
-}
-
-/* Card Hover effect */
-.specialty-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-medium), var(--shadow-glow);
-    border-color: rgba(184, 137, 90, 0.35);
-}
-
-.specialty-card:hover .specialty-img {
-    transform: scale(1.06);
-}
-
-/* --------------------------------------------------------------------------
-   9. GALLERY SECTION (MASONRY GRID)
-   -------------------------------------------------------------------------- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 260px;
     gap: var(--space-md);
 }
 
-.gallery-item {
-    position: relative;
-    border-radius: var(--border-radius-xl);
-    overflow: hidden;
-    cursor: pointer;
+.highlight-box {
+    background-color: var(--color-bg-white);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(111, 78, 55, 0.1);
     box-shadow: var(--shadow-subtle);
-    border: 1px solid rgba(217, 198, 176, 0.15);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
     transition: var(--transition-smooth);
 }
 
-.item-large {
-    grid-column: span 2;
-    grid-row: span 2;
+.highlight-box:hover {
+    transform: translateX(6px);
+    border-color: var(--color-detail);
+    box-shadow: var(--shadow-medium);
 }
 
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(111, 78, 55, 0.45);
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-xs);
-    color: var(--color-bg-white);
-    transition: var(--transition-fast);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.gallery-overlay i {
+.highlight-icon {
+    color: var(--color-detail);
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
-.gallery-overlay span {
-    font-size: 0.85rem;
-    text-transform: uppercase;
+.highlight-box h3 {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
-}
-
-/* Hover Gallery Item */
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-/* --------------------------------------------------------------------------
-   10. LIGHTBOX GALLERY SYSTEM
-   -------------------------------------------------------------------------- */
-.lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(31, 31, 31, 0.97);
-    z-index: var(--z-lightbox);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.lightbox.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.lightbox-content-wrapper {
-    max-width: 85%;
-    max-height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(0.95);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lightbox.active .lightbox-content-wrapper {
-    transform: scale(1);
-}
-
-.lightbox-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
-}
-
-/* Close & Nav buttons */
-.lightbox-close {
-    position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
-    color: var(--color-bg-white);
-    font-size: 2rem;
-    opacity: 0.7;
-    transition: var(--transition-fast);
-    padding: var(--space-xs);
-    z-index: 1010;
-}
-
-.lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-bg-white);
-    opacity: 0.6;
-    font-size: 2rem;
-    transition: var(--transition-fast);
-    padding: var(--space-sm);
-    z-index: 1010;
-}
-
-.nav-prev { left: var(--space-md); }
-.nav-next { right: var(--space-md); }
-
-.lightbox-close:hover,
-.lightbox-nav:hover {
-    opacity: 1;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.lightbox-close:hover {
-    transform: scale(1.1);
-}
-
-/* --------------------------------------------------------------------------
-   11. REVIEWS SECTION (SLIDER CAROUSEL - RESOLVED WIDTHS)
-   -------------------------------------------------------------------------- */
-.reviews-header {
-    margin-bottom: var(--space-xl);
-}
-
-.rating-box-container {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.rating-box {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    background-color: var(--color-bg-main);
-    padding: var(--space-md) var(--space-lg);
-    border-radius: var(--border-radius-md);
-    border: 1px solid rgba(217, 198, 176, 0.25);
-    box-shadow: var(--shadow-subtle);
-}
-
-.rating-num {
-    font-family: var(--font-heading);
-    font-size: 3.8rem;
-    font-weight: 700;
     color: var(--color-cafe);
-    line-height: 1;
-}
-
-.rating-meta {
-    display: flex;
-    flex-direction: column;
-}
-
-.stars-row {
-    display: flex;
-    gap: 3px;
     margin-bottom: 2px;
 }
 
-.stars-row i {
-    width: 18px;
-    height: 18px;
-}
-
-.rating-meta span {
-    font-size: 0.85rem;
+.highlight-box p {
     color: var(--color-text-muted);
-}
-
-/* Slider Track & Cards - Fixed gaps & width formulas to avoid cut-offs */
-.reviews-slider-wrapper {
-    position: relative;
-    overflow: hidden;
-    padding: var(--space-sm) 0;
-}
-
-.reviews-track {
-    display: flex;
-    gap: var(--slider-gap);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-}
-
-.review-card {
-    /* 33.333% minus proportional share of gaps */
-    flex: 0 0 calc(33.333% - 16px); 
-    background-color: var(--color-bg-main);
-    padding: var(--space-lg);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid rgba(217, 198, 176, 0.15);
-    box-shadow: var(--shadow-subtle);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: var(--transition-smooth);
-}
-
-.review-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-medium);
-    border-color: rgba(184, 137, 90, 0.25);
-}
-
-.review-stars {
-    display: flex;
-    gap: 2px;
-    margin-bottom: var(--space-md);
-}
-
-.review-stars i {
-    width: 16px;
-    height: 16px;
-}
-
-.review-text {
-    color: var(--color-text-main);
-    font-size: 0.98rem;
-    line-height: 1.6;
-    margin-bottom: var(--space-md);
-    font-style: italic;
+    font-size: 0.95rem;
     font-weight: 300;
 }
 
-.review-author {
-    border-top: 1px solid rgba(217, 198, 176, 0.2);
-    padding-top: var(--space-sm);
-    display: flex;
-    align-items: center;
-}
-
-.author-info {
+/* --------------------------------------------------------------------------
+   8. SPECIALTIES SECTION (TYPOGRAPHIC CARDS & VECTOR ICONS)
+   -------------------------------------------------------------------------- */
+.specialty-card-typographic {
+    background-color: var(--color-bg-white);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-lg) var(--space-md);
+    border: 1px solid rgba(111, 78, 55, 0.12);
+    box-shadow: var(--shadow-subtle);
+    text-align: center;
+    transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
-}
-
-.author-name {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--color-text-main);
-}
-
-.author-status {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-}
-
-/* Slider Navigation UI */
-.slider-controls {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-    margin-top: var(--space-xl);
+    justify-content: flex-start;
+    height: 100%;
 }
 
-.slider-btn {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
+.specialty-header-icon {
+    width: 60px;
+    height: 60px;
     background-color: var(--color-bg-main);
-    border: 1px solid var(--color-beige);
-    color: var(--color-text-main);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-subtle);
+    color: var(--color-detail);
+    margin-bottom: var(--space-md);
     transition: var(--transition-fast);
 }
 
-.slider-btn:hover {
-    background-color: var(--color-detail);
+.specialty-header-icon i {
+    width: 28px;
+    height: 28px;
+}
+
+.specialty-card-typographic h3 {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 400;
+    color: var(--color-cafe);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.01em;
+}
+
+.specialty-card-typographic p {
+    font-size: 0.98rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Card Hover animation */
+.specialty-card-typographic:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
     border-color: var(--color-detail);
+}
+
+.specialty-card-typographic:hover .specialty-header-icon {
+    background-color: var(--color-cafe);
     color: var(--color-bg-white);
     transform: scale(1.05);
 }
 
-.slider-btn i {
-    width: 18px;
-    height: 18px;
-}
-
-.slider-dots {
-    display: flex;
-    gap: 8px;
-}
-
-.slider-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--color-beige);
-    transition: var(--transition-fast);
-}
-
-.slider-dot.active {
-    width: 24px;
-    border-radius: 4px;
-    background-color: var(--color-detail);
-}
-
 /* --------------------------------------------------------------------------
-   12. FAQ ACCORDION SECTION
+   9. FAQ ACCORDION SECTION
    -------------------------------------------------------------------------- */
 .faq-accordion {
     max-width: var(--container-narrow-width);
@@ -1125,6 +733,7 @@ a:focus-visible, button:focus-visible {
     font-size: 0.98rem;
     color: var(--color-text-muted);
     line-height: 1.6;
+    font-weight: 300;
 }
 
 .faq-body p {
@@ -1146,7 +755,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   13. CTA BANNER SECTION
+   10. CTA BANNER SECTION
    -------------------------------------------------------------------------- */
 .cta-banner {
     position: relative;
@@ -1219,7 +828,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   14. LOCATION, CONTACT & MAP SECTION
+   11. LOCATION, CONTACT & MAP SECTION
    -------------------------------------------------------------------------- */
 .info-details-list {
     margin: var(--space-lg) 0;
@@ -1303,7 +912,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   15. FOOTER SECTION
+   12. FOOTER SECTION
    -------------------------------------------------------------------------- */
 .footer {
     background-color: #151515;
@@ -1416,7 +1025,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   16. MEDIA QUERIES (RESPONSIVE ENGINE)
+   13. MEDIA QUERIES (RESPONSIVE ENGINE)
    -------------------------------------------------------------------------- */
 
 /* Large screens (up to 1200px) */
@@ -1426,7 +1035,7 @@ a:focus-visible, button:focus-visible {
         --space-xxl: 5rem;
     }
     
-    .hero-title {
+    .hero-title-typographic {
         font-size: 4.5rem;
     }
 }
@@ -1436,20 +1045,6 @@ a:focus-visible, button:focus-visible {
     .grid-3 {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 220px;
-    }
-    
-    .item-large {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-    
-    .review-card {
-        flex: 0 0 calc(50% - 12px); /* Correct spacing for 2 cards */
     }
     
     .footer-grid {
@@ -1473,29 +1068,14 @@ a:focus-visible, button:focus-visible {
         font-size: 2.5rem;
     }
     
-    .grid-2, .grid-2-equal {
+    .grid-2-about, .grid-2-equal {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
     }
     
-    /* Reverse columns on about section in mobile for order */
-    .grid-2 {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-    
-    .about-content {
+    .about-content-full {
         width: 100%;
         padding-right: 0;
-    }
-    
-    .about-image-wrapper {
-        width: 85%;
-        margin: 0 auto var(--space-md) auto;
-    }
-    
-    .about-image {
-        height: 380px;
     }
     
     /* Navigation Bar */
@@ -1561,29 +1141,12 @@ a:focus-visible, button:focus-visible {
     }
     
     /* Hero */
-    .hero-title {
+    .hero-title-typographic {
         font-size: 3.25rem;
     }
     
-    .hero-subtitle {
+    .hero-subtitle-typographic {
         font-size: 1.15rem;
-    }
-    
-    /* rating header in reviews */
-    .reviews-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: var(--space-md);
-    }
-    
-    .rating-box-container {
-        justify-content: center;
-    }
-    
-    .review-card {
-        flex: 0 0 100%; /* 1 card on mobile */
     }
     
     /* Map layout */
@@ -1609,8 +1172,8 @@ a:focus-visible, button:focus-visible {
         height: calc(100vh - 80px);
     }
     
-    .hero-title {
-        font-size: 2.65rem;
+    .hero-title-typographic {
+        font-size: 2.5rem;
     }
     
     .hero-buttons {
@@ -1628,19 +1191,9 @@ a:focus-visible, button:focus-visible {
         grid-template-columns: 1fr;
     }
     
-    .specialty-card {
+    .specialty-card-typographic {
         max-width: 340px;
         margin: 0 auto;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 240px;
-    }
-    
-    .item-large {
-        grid-column: span 1;
-        grid-row: span 1;
     }
     
     .cta-title {
