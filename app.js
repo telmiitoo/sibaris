@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIBARIS CAFE SEVILLA - TYPOGRAPHIC SCRIPTS (JS)
+   SIBARIS CAFE SEVILLA - TYPOGRAPHIC & INTERACTIVE SCRIPTS (JS)
    Author: Professional UX/UI Web Design Studio
    ========================================================================== */
 
@@ -16,10 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Scroll Reveal Animations (Intersection Observer)
     initScrollReveal();
 
-    // 5. FAQ Accordions (Smooth Heights)
+    // 5. Hero Mouse-Parallax Glow Effect (Interactive Ambiance)
+    initHeroMouseParallax();
+
+    // 6. Cards Mouse Spotlight Tracking (Interactive Glow)
+    initCardsSpotlight();
+
+    // 7. FAQ Accordions (Smooth Heights)
     initFaqAccordions();
 
-    // 6. Interactive Map (Leaflet.js)
+    // 8. Interactive Map (Leaflet.js)
     initInteractiveMap();
 });
 
@@ -157,7 +163,49 @@ function initScrollReveal() {
 }
 
 /* --------------------------------------------------------------------------
-   5. FAQ ACCORDIONS (SMOOTH HEIGHTS)
+   5. HERO MOUSE-PARALLAX GLOW EFFECT (INTERACTIVE AMBIANCE)
+   -------------------------------------------------------------------------- */
+function initHeroMouseParallax() {
+    const glow1 = document.getElementById('glow1');
+    const glow2 = document.getElementById('glow2');
+    
+    if (!glow1 || !glow2) return;
+
+    window.addEventListener('mousemove', (e) => {
+        // Subtle offset proportional to mouse coordinate
+        const x = (e.clientX - window.innerWidth / 2) * 0.04;
+        const y = (e.clientY - window.innerHeight / 2) * 0.04;
+        
+        // requestAnimationFrame yields fluid GPU-accelerated motion
+        window.requestAnimationFrame(() => {
+            glow1.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            glow2.style.transform = `translate3d(${-x}px, ${-y}px, 0)`;
+        });
+    });
+}
+
+/* --------------------------------------------------------------------------
+   6. CARDS MOUSE SPOTLIGHT TRACKING (INTERACTIVE GLOW)
+   -------------------------------------------------------------------------- */
+function initCardsSpotlight() {
+    const cards = document.querySelectorAll('.specialty-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            // Cursor position relative to card bounds
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Set CSS Custom Properties for radial-gradient spotlight
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+}
+
+/* --------------------------------------------------------------------------
+   7. FAQ ACCORDION SECTION (SMOOTH HEIGHTS)
    -------------------------------------------------------------------------- */
 function initFaqAccordions() {
     const accordionTriggers = document.querySelectorAll('.faq-trigger');
@@ -192,7 +240,7 @@ function initFaqAccordions() {
 }
 
 /* --------------------------------------------------------------------------
-   6. INTERACTIVE MAP (LEAFLET.JS)
+   8. INTERACTIVE MAP (LEAFLET.JS)
    -------------------------------------------------------------------------- */
 function initInteractiveMap() {
     const mapElement = document.getElementById('map');
@@ -219,7 +267,7 @@ function initInteractiveMap() {
         }).addTo(map);
 
         const customIcon = L.divIcon({
-            html: '<div style=\"background-color: #6F4E37; border: 3px solid #FAF8F5; width: 20px; height: 20px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3);\"></div>',
+            html: '<div style=\"background-color: #0E2954; border: 3px solid #FAF8F5; width: 20px; height: 20px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3);\"></div>',
             className: 'custom-map-icon',
             iconSize: [20, 20],
             iconAnchor: [10, 10]
@@ -228,7 +276,7 @@ function initInteractiveMap() {
         const marker = L.marker([lat, lng], { icon: customIcon }).addTo(map);
         marker.bindPopup(`
             <div style=\"font-family: 'Inter', sans-serif; font-size: 13px; color: #1F1F1F; padding: 4px;\">
-                <strong style=\"font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #6F4E37;\">Sibaris</strong><br>
+                <strong style=\"font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #0E2954;\">Sibaris</strong><br>
                 Calle San Alonso de Orozco 9<br>
                 41003 Sevilla
             </div>

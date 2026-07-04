@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIBARIS CAFE SEVILLA - TYPOGRAPHIC DESIGN SYSTEM & PREMIUM STYLESHEET
+   SIBARIS CAFE SEVILLA - PREMIUM NAVY & TYPOGRAPHIC DESIGN SYSTEM
    Author: Professional UX/UI Web Design Studio
    ========================================================================== */
 
@@ -7,17 +7,21 @@
    1. CSS VARIABLES (DESIGN SYSTEM TOKENS)
    -------------------------------------------------------------------------- */
 :root {
-    /* Color Palette */
+    /* Color Palette - Updated to match official navy logo */
     --color-bg-main: #FAF8F5;
     --color-bg-white: #FFFFFF;
     --color-text-main: #1F1F1F;
     --color-text-muted: #6B6B6B;
     
-    --color-cafe: #6F4E37;
-    --color-cafe-hover: #5A3E2B;
+    --color-primary-blue: #0E2954; /* Navy Blue from the Official Logo */
+    --color-primary-hover: #071935;
+    
+    --color-cafe: #0E2954; /* Main color matches logo navy */
+    --color-cafe-hover: #071935;
+    
     --color-beige: #D9C6B0;
     --color-beige-light: #F2EAE0;
-    --color-detail: #B8895A;
+    --color-detail: #B8895A; /* Gold/brass accents */
     --color-detail-hover: #9E7348;
     
     /* Typography */
@@ -41,9 +45,9 @@
     --border-radius-xl: 24px;
     
     /* Shadows */
-    --shadow-subtle: 0 4px 20px rgba(111, 78, 55, 0.03);
-    --shadow-medium: 0 10px 30px rgba(31, 31, 31, 0.05);
-    --shadow-premium: 0 20px 45px rgba(111, 78, 55, 0.08);
+    --shadow-subtle: 0 4px 20px rgba(14, 41, 84, 0.02);
+    --shadow-medium: 0 10px 30px rgba(14, 41, 84, 0.04);
+    --shadow-premium: 0 20px 45px rgba(14, 41, 84, 0.06);
     
     /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -105,7 +109,7 @@ a:focus-visible, button:focus-visible {
 /* Custom Selection Colors */
 ::selection {
     background-color: var(--color-beige);
-    color: var(--color-cafe);
+    color: var(--color-primary-blue);
 }
 
 /* Custom Elegant Scrollbar */
@@ -232,14 +236,14 @@ a:focus-visible, button:focus-visible {
 }
 
 .btn-primary {
-    background-color: var(--color-cafe);
+    background-color: var(--color-primary-blue);
     color: var(--color-bg-white);
 }
 
 .btn-primary:hover {
-    background-color: var(--color-cafe-hover);
+    background-color: var(--color-primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(111, 78, 55, 0.15);
+    box-shadow: 0 8px 25px rgba(14, 41, 84, 0.15);
 }
 
 .btn-secondary {
@@ -305,7 +309,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   5. HEADER NAVIGATION
+   5. HEADER NAVIGATION & VECTOR LOGO ANIMATIONS
    -------------------------------------------------------------------------- */
 .header {
     position: fixed;
@@ -316,7 +320,7 @@ a:focus-visible, button:focus-visible {
     background-color: rgba(250, 248, 245, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(217, 198, 176, 0.15);
+    border-bottom: 1px solid rgba(14, 41, 84, 0.08);
     z-index: var(--z-header);
     transition: var(--transition-smooth);
 }
@@ -325,7 +329,7 @@ a:focus-visible, button:focus-visible {
     height: 75px;
     box-shadow: var(--shadow-subtle);
     background-color: rgba(250, 248, 245, 0.95);
-    border-bottom: 1px solid rgba(217, 198, 176, 0.1);
+    border-bottom: 1px solid rgba(14, 41, 84, 0.05);
 }
 
 .header-container {
@@ -335,12 +339,51 @@ a:focus-visible, button:focus-visible {
     justify-content: space-between;
 }
 
-.logo {
+/* Vector Logo alignment and keyframes styling */
+.logo-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.logo-text-title {
     font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1.45rem;
+    font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--color-text-main);
+    color: var(--color-primary-blue);
+    transition: var(--transition-fast);
+}
+
+.logo-wrapper:hover .logo-text-title {
+    color: var(--color-detail);
+}
+
+.sibaris-logo {
+    transition: var(--transition-smooth);
+}
+
+.logo-bg-square {
+    transition: fill 0.4s ease;
+}
+
+.logo-diamond-group {
+    transform-origin: 50px 50px;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Logo interactive micro-animations on hover */
+.logo-wrapper:hover .logo-diamond-group {
+    transform: rotate(90deg);
+}
+
+.logo-wrapper:hover .logo-bg-square {
+    fill: var(--color-detail);
+}
+
+.logo-wrapper:hover .sibaris-logo {
+    transform: scale(1.05);
 }
 
 .nav-menu ul {
@@ -425,7 +468,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   6. HERO SECTION (DARK COFFEE GRADIENT)
+   6. HERO SECTION (TYPOGRAPHIC & INTERACTIVE GLOWS)
    -------------------------------------------------------------------------- */
 .hero-typographic {
     position: relative;
@@ -433,31 +476,36 @@ a:focus-visible, button:focus-visible {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #1A120B 0%, #3B2A1E 100%);
+    background: linear-gradient(135deg, #0A1B36 0%, #152C53 100%);
     overflow: hidden;
 }
 
-/* Glow overlays for dynamic layout atmosphere */
-.hero-typographic::before {
-    content: '';
+/* Mouse-responsive ambient glow circles */
+.hero-glow {
     position: absolute;
-    top: -10%;
-    right: -10%;
-    width: 650px;
-    height: 650px;
-    background: radial-gradient(circle, rgba(184, 137, 90, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
     pointer-events: none;
+    z-index: 2;
+    will-change: transform;
+    transition: transform 0.2s ease-out;
 }
 
-.hero-typographic::after {
-    content: '';
-    position: absolute;
-    bottom: -15%;
-    left: -10%;
+.hero-glow-1 {
+    top: 15%;
+    right: 15%;
+    width: 450px;
+    height: 450px;
+    background: var(--color-detail);
+}
+
+.hero-glow-2 {
+    bottom: 10%;
+    left: 10%;
     width: 550px;
     height: 550px;
-    background: radial-gradient(circle, rgba(111, 78, 55, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
-    pointer-events: none;
+    background: var(--color-primary-blue);
 }
 
 .hero-content-typographic {
@@ -593,7 +641,7 @@ a:focus-visible, button:focus-visible {
     background-color: var(--color-bg-white);
     padding: var(--space-md) var(--space-lg);
     border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(111, 78, 55, 0.1);
+    border: 1px solid rgba(14, 41, 84, 0.08);
     box-shadow: var(--shadow-subtle);
     display: flex;
     gap: var(--space-sm);
@@ -619,7 +667,7 @@ a:focus-visible, button:focus-visible {
     font-family: var(--font-body);
     font-size: 1.15rem;
     font-weight: 600;
-    color: var(--color-cafe);
+    color: var(--color-primary-blue);
     margin-bottom: 2px;
 }
 
@@ -630,13 +678,13 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   8. SPECIALTIES SECTION (ELEGANT ALIGNED CARD CONTAINERS)
+   8. SPECIALTIES SECTION (GLOW INTERACTIVE CARDS)
    -------------------------------------------------------------------------- */
 .specialty-card {
     background-color: var(--color-bg-white);
     border-radius: var(--border-radius-xl);
     padding: var(--space-lg) var(--space-md);
-    border: 1px solid rgba(111, 78, 55, 0.12);
+    border: 1px solid rgba(14, 41, 84, 0.08);
     box-shadow: var(--shadow-subtle);
     text-align: center;
     transition: var(--transition-smooth);
@@ -645,6 +693,28 @@ a:focus-visible, button:focus-visible {
     align-items: center;
     justify-content: flex-start;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mouse hover spotlight tracking overlay */
+.specialty-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(184, 137, 90, 0.08), transparent 60%);
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.specialty-card:hover::before {
+    opacity: 1;
 }
 
 .specialty-header-icon {
@@ -658,6 +728,8 @@ a:focus-visible, button:focus-visible {
     color: var(--color-detail);
     margin-bottom: var(--space-md);
     transition: var(--transition-fast);
+    position: relative;
+    z-index: 2;
 }
 
 .specialty-header-icon i {
@@ -669,9 +741,11 @@ a:focus-visible, button:focus-visible {
     font-family: var(--font-heading);
     font-size: 1.85rem;
     font-weight: 400;
-    color: var(--color-cafe);
+    color: var(--color-primary-blue);
     margin-bottom: var(--space-xs);
     letter-spacing: -0.01em;
+    position: relative;
+    z-index: 2;
 }
 
 .specialty-card p {
@@ -679,6 +753,8 @@ a:focus-visible, button:focus-visible {
     color: var(--color-text-muted);
     line-height: 1.6;
     font-weight: 300;
+    position: relative;
+    z-index: 2;
 }
 
 /* Card Hover animation */
@@ -689,7 +765,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .specialty-card:hover .specialty-header-icon {
-    background-color: var(--color-cafe);
+    background-color: var(--color-primary-blue);
     color: var(--color-bg-white);
     transform: scale(1.08);
 }
@@ -730,7 +806,7 @@ a:focus-visible, button:focus-visible {
 .instagram-embed-container:hover {
     transform: translateY(-8px) scale(1.02);
     border-color: var(--color-detail);
-    box-shadow: 0 25px 50px rgba(111, 78, 55, 0.12);
+    box-shadow: 0 25px 50px rgba(14, 41, 84, 0.12);
 }
 
 .instagram-iframe {
@@ -822,7 +898,7 @@ a:focus-visible, button:focus-visible {
     position: relative;
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
-    background-color: var(--color-cafe);
+    background-color: var(--color-primary-blue);
     color: var(--color-bg-white);
     overflow: hidden;
 }
@@ -867,7 +943,7 @@ a:focus-visible, button:focus-visible {
 
 .btn-primary-cta {
     background-color: var(--color-bg-white);
-    color: var(--color-cafe);
+    color: var(--color-primary-blue);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -976,7 +1052,7 @@ a:focus-visible, button:focus-visible {
    13. FOOTER SECTION
    -------------------------------------------------------------------------- */
 .footer {
-    background-color: #151515;
+    background-color: #081121; /* Rich dark navy footer matching logo tone */
     color: rgba(255, 255, 255, 0.65);
     padding-top: var(--space-xl);
 }
@@ -995,12 +1071,9 @@ a:focus-visible, button:focus-visible {
     gap: var(--space-sm);
 }
 
-.footer-logo {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 500;
-    color: var(--color-bg-white);
-    letter-spacing: 0.12em;
+/* Footer logo wrapper spacing */
+.footer-brand .logo-wrapper {
+    margin-bottom: var(--space-xs);
 }
 
 .footer-tagline {
@@ -1102,7 +1175,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Tablets / iPads (up to 992px) */
-@media screen and (max-width: 992px) {
+@media screen collector and (max-width: 992px) {
     .grid-3 {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);

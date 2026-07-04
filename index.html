@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
     <!-- Stylesheets (Added version query for cache busting) -->
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -69,7 +69,18 @@
     <!-- Header Navigation -->
     <header class="header">
         <div class="container header-container">
-            <a href="#" class="logo">SIBARIS</a>
+            <!-- Animated SVG Logo -->
+            <a href="#" class="logo-wrapper" aria-label="Sibaris Inicio">
+                <svg class="sibaris-logo" viewBox="0 0 100 100" width="48" height="48">
+                    <rect class="logo-bg-square" x="15" y="15" width="70" height="70" rx="4" fill="#0E2954"/>
+                    <g class="logo-diamond-group">
+                        <rect class="logo-diamond" x="24" y="24" width="52" height="52" fill="none" stroke="#FFFFFF" stroke-width="2" transform="rotate(45 50 50)"/>
+                        <rect class="logo-diamond-inner" x="28" y="28" width="44" height="44" fill="none" stroke="#FFFFFF" stroke-width="0.8" transform="rotate(45 50 50)"/>
+                    </g>
+                    <text class="logo-text" x="50" y="54" font-family="'Cormorant Garamond', serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">SIBARIS</text>
+                </svg>
+                <span class="logo-text-title">SIBARIS</span>
+            </a>
             
             <nav class="nav-menu" id="navMenu">
                 <ul>
@@ -101,8 +112,10 @@
     </header>
 
     <main>
-        <!-- Hero Section (Typographic and Warm Ambiance Gradient) -->
+        <!-- Hero Section (Typographic and Mouse-Interactive Parallax Glows) -->
         <section class="hero-typographic" id="hero">
+            <div class="hero-glow hero-glow-1" id="glow1"></div>
+            <div class="hero-glow hero-glow-2" id="glow2"></div>
             <div class="container hero-content-typographic reveal-fade">
                 <h1 class="hero-title-typographic">El lugar perfecto para disfrutar de un gran café en Sevilla.</h1>
                 <p class="hero-subtitle-typographic">Desayunos, cafés, meriendas, heladería y retransmisiones de fútbol en pantallas en un ambiente acogedor en pleno centro.</p>
@@ -224,7 +237,7 @@
             </div>
         </section>
 
-        <!-- Instagram Live Atmosphere Section (NEW - EMBEDDED REAL REEL) -->
+        <!-- Instagram Live Atmosphere Section (EMBEDDED REAL REEL) -->
         <section class="instagram-section section-padding" id="instagram">
             <div class="container grid-2-equal">
                 <div class="instagram-content reveal-left">
@@ -397,10 +410,21 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <a href="#" class="footer-logo">SIBARIS</a>
+                <!-- Footer Animated SVG Logo -->
+                <a href="#" class="logo-wrapper" aria-label="Sibaris Inicio">
+                    <svg class="sibaris-logo" viewBox="0 0 100 100" width="48" height="48">
+                        <rect class="logo-bg-square" x="15" y="15" width="70" height="70" rx="4" fill="#0E2954"/>
+                        <g class="logo-diamond-group">
+                            <rect class="logo-diamond" x="24" y="24" width="52" height="52" fill="none" stroke="#FFFFFF" stroke-width="2" transform="rotate(45 50 50)"/>
+                            <rect class="logo-diamond-inner" x="28" y="28" width="44" height="44" fill="none" stroke="#FFFFFF" stroke-width="0.8" transform="rotate(45 50 50)"/>
+                        </g>
+                        <text class="logo-text" x="50" y="54" font-family="'Cormorant Garamond', serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">SIBARIS</text>
+                    </svg>
+                    <span class="logo-text-title text-white">SIBARIS</span>
+                </a>
                 <p class="footer-tagline">Cafetería, heladería y retransmisiones deportivas en Sevilla. Un espacio acogedor con terraza y el mejor ambiente de la ciudad.</p>
                 <div class="footer-socials">
-                    <a href="#" aria-label="Instagram de Sibaris"><i data-lucide="instagram"></i></a>
+                    <a href="https://www.instagram.com/sibarissevilla/" target="_blank" aria-label="Instagram de Sibaris"><i data-lucide="instagram"></i></a>
                     <a href="#" aria-label="Facebook de Sibaris"><i data-lucide="facebook"></i></a>
                     <a href="#" aria-label="TripAdvisor de Sibaris"><i data-lucide="message-square"></i></a>
                 </div>
