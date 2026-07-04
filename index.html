@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sibaris - Cafetería de especialidad en el centro de Sevilla. Desayunos, meriendas, repostería artesana y brunch en un ambiente acogedor y moderno. Abierto todos los días.">
+    <meta name="keywords" content="cafeteria sevilla, cafe especialidad sevilla, desayunos sevilla, brunch sevilla, sibaris sevilla">
+    <meta name="author" content="Sibaris Sevilla">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sibaris-sevilla.es/">
+    <meta property="og:title" content="Sibaris | Cafetería de Especialidad en Sevilla">
+    <meta property="og:description" content="Disfruta del mejor café de especialidad, desayunos y brunch en Sevilla. Visítanos en Calle San Alonso de Orozco 9.">
+    <meta property="og:image" content="https://sibaris-sevilla.es/assets/hero-bg.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sibaris-sevilla.es/">
+    <meta property="twitter:title" content="Sibaris | Cafetería de Especialidad en Sevilla">
+    <meta property="twitter:description" content="Disfruta del mejor café de especialidad, desayunos y brunch en Sevilla. Visítanos en Calle San Alonso de Orozco 9.">
+    <meta property="twitter:image" content="https://sibaris-sevilla.es/assets/hero-bg.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/spec-cafe.jpg">
+
+    <title>Sibaris | Cafetería de Especialidad en Sevilla</title>
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "Sibaris",
+      "image": "https://sibaris-sevilla.es/assets/hero-bg.jpg",
+      "@id": "https://sibaris-sevilla.es/#store",
+      "url": "https://sibaris-sevilla.es/",
+      "telephone": "+34954271822",
+      "priceRange": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle San Alonso de Orozco 9",
+        "addressLocality": "Sevilla",
+        "postalCode": "41003",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.3891,
+        "longitude": -5.9845
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "23:59"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "4400"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">SIBARIS</a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#sobre-nosotros" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+                    <li><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li><a href="#reseñas" class="nav-link">Reseñas</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="tel:+34954271822" class="btn btn-nav btn-secondary" aria-label="Llamar a Sibaris">
+                    <i data-lucide="phone"></i> <span>Llamar</span>
+                </a>
+                <a href="https://maps.google.com/?q=Calle+San+Alonso+de+Orozco+9,+41003+Sevilla" target="_blank" class="btn btn-nav btn-primary" aria-label="Cómo llegar a Sibaris">
+                    <i data-lucide="map-pin"></i> <span>Cómo llegar</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="progressBar"></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-parallax-bg" style="background-image: url('assets/hero-bg.jpg');"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content reveal-fade">
+                <h1 class="hero-title">El lugar perfecto para disfrutar de un gran café en Sevilla.</h1>
+                <p class="hero-subtitle">Desayunos, cafés de especialidad y meriendas en un ambiente acogedor y moderno en pleno corazón de Sevilla.</p>
+                <div class="hero-buttons">
+                    <a href="https://maps.google.com/?q=Calle+San+Alonso+de+Orozco+9,+41003+Sevilla" target="_blank" class="btn btn-hero btn-primary-hero">
+                        <i data-lucide="map-pin"></i> Cómo llegar
+                    </a>
+                    <a href="tel:+34954271822" class="btn btn-hero btn-secondary-hero">
+                        <i data-lucide="phone"></i> Llamar
+                    </a>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Deslizar</span>
+                <i data-lucide="arrow-down"></i>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about section-padding" id="sobre-nosotros">
+            <div class="container grid-2">
+                <div class="about-content reveal-left">
+                    <span class="section-tagline">Nuestra Filosofía</span>
+                    <h2 class="section-title">Pasión por el detalle y la calidad</h2>
+                    <p class="section-desc">En <strong>Sibaris</strong> nos apasiona ofrecer una experiencia gastronómica y cafetera excepcional en Sevilla. Seleccionamos cuidadosamente granos de origen único y combinamos técnicas artesanales de tostado y extracción para conseguir un sabor inigualable.</p>
+                    <p class="section-desc">Nuestro local ha sido diseñado para proporcionar un ambiente acogedor, luminoso y minimalista. Un refugio perfecto donde desconectar, reunirse, trabajar o simplemente deleitarse con un desayuno tradicional andaluz con café de especialidad.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i data-lucide="sparkles" class="feature-icon"></i>
+                            <div>
+                                <h3>Calidad Premium</h3>
+                                <p>Ingredientes seleccionados, repostería artesanal y café de alta gama.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="users" class="feature-icon"></i>
+                            <div>
+                                <h3>Atención Cercana</h3>
+                                <p>Un equipo apasionado de baristas dedicados a hacerte sentir como en casa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-wrapper reveal-right">
+                    <img src="assets/about.jpg" alt="Barista preparando café con leche art en Sibaris" class="about-image" loading="lazy">
+                    <div class="about-image-badge">
+                        <span class="badge-num">4.4</span>
+                        <div class="badge-stars">
+                            <i data-lucide="star" class="star-fill"></i>
+                            <i data-lucide="star" class="star-fill"></i>
+                            <i data-lucide="star" class="star-fill"></i>
+                            <i data-lucide="star" class="star-fill"></i>
+                            <i data-lucide="star" class="star-fill-half"></i>
+                        </div>
+                        <span class="badge-txt">+4.400 Reseñas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialties Section -->
+        <section class="specialties section-padding bg-alt" id="especialidades">
+            <div class="container">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-tagline">Para deleitarte</span>
+                    <h2 class="section-title">Nuestras Especialidades</h2>
+                    <p class="section-subtitle-text">Cada propuesta de nuestra carta está elaborada con materias primas de la más alta calidad.</p>
+                </div>
+                
+                <div class="grid-3 reveal-up">
+                    <!-- Specialty 1 -->
+                    <div class="specialty-card">
+                        <div class="specialty-img-container">
+                            <img src="assets/spec-cafe.jpg" alt="Taza de café flat white de especialidad" class="specialty-img" loading="lazy">
+                        </div>
+                        <div class="specialty-info">
+                            <span class="specialty-icon">☕</span>
+                            <h3>Café</h3>
+                            <p>Granos de especialidad seleccionados, tostados a la perfección y extraídos con precisión barista.</p>
+                        </div>
+                    </div>
+
+                    <!-- Specialty 2 -->
+                    <div class="specialty-card">
+                        <div class="specialty-img-container">
+                            <img src="assets/spec-bolleria.jpg" alt="Bandeja de croissants de mantequilla" class="specialty-img" loading="lazy">
+                        </div>
+                        <div class="specialty-info">
+                            <span class="specialty-icon">🥐</span>
+                            <h3>Bollería</h3>
+                            <p>Hojaldres crujientes y repostería artesanal horneada cada mañana para un sabor óptimo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Specialty 3 -->
+                    <div class="specialty-card">
+                        <div class="specialty-img-container">
+                            <img src="assets/spec-tostadas.jpg" alt="Tostada andaluza con tomate y aceite" class="specialty-img" loading="lazy">
+                        </div>
+                        <div class="specialty-info">
+                            <span class="specialty-icon">🥪</span>
+                            <h3>Tostadas</h3>
+                            <p>Variedades de panes de masa madre con aceite de oliva extra virgen, tomate, jamón ibérico y más.</p>
+                        </div>
+                    </div>
+
+                    <!-- Specialty 4 -->
+                    <div class="specialty-card">
+                        <div class="specialty-img-container">
+                            <img src="assets/spec-tartas.jpg" alt="Tarta de queso vasca cremosa" class="specialty-img" loading="lazy">
+                        </div>
+                        <div class="specialty-info">
+                            <span class="specialty-icon">🍰</span>
+                            <h3>Tartas</h3>
+                            <p>Nuestra selección de repostería casera, desde cremosa tarta de queso hasta tartas de chocolate belga.</p>
+                        </div>
+                    </div>
+
+                    <!-- Specialty 5 -->
+                    <div class="specialty-card">
+                        <div class="specialty-img-container">
+                            <img src="assets/spec-zumos.jpg" alt="Vaso de zumo de naranja fresco y natural" class="specialty-img" loading="lazy">
+                        </div>
+                        <div class="specialty-info">
+                            <span class="specialty-icon">🧃</span>
+                            <h3>Zumos</h3>
+                            <p>Zumos naturales exprimidos al momento y combinaciones detox cargadas de vitaminas naturales.</p>
+                        </div>
+                    </div>
+
+                    <!-- Specialty 6 -->
+                    <div class="specialty-card">
+                        <div class="specialty-img-container">
+                            <img src="assets/spec-brunch.jpg" alt="Plato completo de brunch con huevos escalfados y aguacate" class="specialty-img" loading="lazy">
+                        </div>
+                        <div class="specialty-info">
+                            <span class="specialty-icon">🥞</span>
+                            <h3>Brunch</h3>
+                            <p>Opciones completas con huevos benedictinos, aguacate, salmón ahumado, boles de yogur y frutas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery section-padding" id="galeria">
+            <div class="container">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-tagline">El Ambiente</span>
+                    <h2 class="section-title">Nuestra Galería</h2>
+                    <p class="section-subtitle-text">Un vistazo al diseño de nuestro espacio, detalles artesanos y ambiente acogedor.</p>
+                </div>
+                
+                <div class="gallery-grid reveal-up">
+                    <div class="gallery-item item-large" data-src="assets/gal-interior.jpg">
+                        <img src="assets/gal-interior.jpg" alt="Diseño de interior moderno y minimalista de la cafetería Sibaris" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span>Ver Interior</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="assets/gal-exterior.jpg">
+                        <img src="assets/gal-exterior.jpg" alt="Fachada exterior minimalista de la cafetería en Sevilla" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span>Ver Exterior</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="assets/gal-terraza.jpg">
+                        <img src="assets/gal-terraza.jpg" alt="Terraza de Sibaris al aire libre bajo los árboles" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span>Ver Terraza</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="assets/gal-detail.jpg">
+                        <img src="assets/gal-detail.jpg" alt="Primer plano de la extracción de café en la máquina espresso" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span>Ver Café</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar vista de imagen"><i data-lucide="x"></i></button>
+            <div class="lightbox-content-wrapper">
+                <img src="" alt="" class="lightbox-img" id="lightboxImg">
+            </div>
+            <button class="lightbox-nav nav-prev" id="lightboxPrev" aria-label="Imagen anterior"><i data-lucide="chevron-left"></i></button>
+            <button class="lightbox-nav nav-next" id="lightboxNext" aria-label="Siguiente imagen"><i data-lucide="chevron-right"></i></button>
+        </div>
+
+        <!-- Reviews Section -->
+        <section class="reviews section-padding bg-alt" id="reseñas">
+            <div class="container">
+                <div class="reviews-header grid-2-equal reveal-fade">
+                    <div>
+                        <span class="section-tagline">Opiniones</span>
+                        <h2 class="section-title">Lo que dicen de nosotros</h2>
+                        <p class="section-desc">Nos enorgullece ser un punto de encuentro valorado tanto por los sevillanos como por los visitantes.</p>
+                    </div>
+                    <div class="rating-box-container">
+                        <div class="rating-box">
+                            <div class="rating-num">4,4</div>
+                            <div class="rating-meta">
+                                <div class="stars-row">
+                                    <i data-lucide="star" class="star-fill"></i>
+                                    <i data-lucide="star" class="star-fill"></i>
+                                    <i data-lucide="star" class="star-fill"></i>
+                                    <i data-lucide="star" class="star-fill"></i>
+                                    <i data-lucide="star" class="star-fill-half"></i>
+                                </div>
+                                <span>Más de 4.400 reseñas en Google</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Slider/Carousel -->
+                <div class="reviews-slider-wrapper reveal-up">
+                    <div class="reviews-track" id="reviewsTrack">
+                        <!-- Review 1 -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                            </div>
+                            <p class="review-text">"El mejor café de especialidad de Sevilla. El espresso es impecable y la repostería artesana es exquisita. El ambiente es super relajante y perfecto para empezar el día en Sevilla."</p>
+                            <div class="review-author">
+                                <div class="author-info">
+                                    <span class="author-name">Alejandro M.</span>
+                                    <span class="author-status">Local Guide</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Review 2 -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                            </div>
+                            <p class="review-text">"Las tostadas de masa madre con tomate y jamón ibérico están espectaculares. El café de origen es de otro nivel. Una atención al cliente maravillosa, los camareros son super amables."</p>
+                            <div class="review-author">
+                                <div class="author-info">
+                                    <span class="author-name">Lucía R.</span>
+                                    <span class="author-status">Cliente habitual</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Review 3 -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                            </div>
+                            <p class="review-text">"Me encanta venir a desayunar o merendar. El diseño minimalista del local te transmite mucha paz. Además, tienen una terraza ideal para las tardes de sol en Sevilla."</p>
+                            <div class="review-author">
+                                <div class="author-info">
+                                    <span class="author-name">David G.</span>
+                                    <span class="author-status">Crítico de cafés</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 4 (Additional for Carousel rotation) -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                                <i data-lucide="star" class="star-fill"></i>
+                            </div>
+                            <p class="review-text">"Una delicia de cafetería. Tienen café de especialidad riquísimo y la tarta de queso está increíble. El wifi funciona estupendamente y el sitio es muy tranquilo para teletrabajar."</p>
+                            <div class="review-author">
+                                <div class="author-info">
+                                    <span class="author-name">María S.</span>
+                                    <span class="author-status">Local Guide</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-controls">
+                        <button class="slider-btn btn-prev" id="sliderPrev" aria-label="Opinión anterior">
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+                        <div class="slider-dots" id="sliderDots"></div>
+                        <button class="slider-btn btn-next" id="sliderNext" aria-label="Siguiente opinión">
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section-padding" id="faq">
+            <div class="container container-narrow">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-tagline">Dudas frecuentes</span>
+                    <h2 class="section-title">Preguntas Frecuentes</h2>
+                    <p class="section-subtitle-text">Respuestas a las preguntas más habituales sobre nuestro local y servicios.</p>
+                </div>
+
+                <div class="faq-accordion reveal-up">
+                    <!-- Accordion Item 1 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-1">
+                            <span>¿Dónde estamos exactamente?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-content" id="faq-ans-1" role="region">
+                            <div class="faq-body">
+                                <p>Estamos ubicados en la <strong>Calle San Alonso de Orozco 9, 41003 Sevilla</strong>. Es una localización céntrica y muy accesible, ideal para hacer una parada y disfrutar de un descanso con el mejor sabor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2">
+                            <span>¿Cuál es vuestro horario de apertura?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-content" id="faq-ans-2" role="region">
+                            <div class="faq-body">
+                                <p>Abrimos todos los días de la semana y estamos a tu disposición <strong>hasta las 00:00</strong>. Ven a disfrutar de nuestros desayunos, boles, meriendas o de un café tardío en un ambiente acogedor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3">
+                            <span>¿Disponéis de terraza al aire libre?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-content" id="faq-ans-3" role="region">
+                            <div class="faq-body">
+                                <p>Sí, contamos con una agradable <strong>terraza exterior</strong>, perfecta para disfrutar del magnífico clima sevillano a la sombra de los árboles mientras tomas tu café de especialidad preferido.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 4 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-4">
+                            <span>¿Se puede pagar con tarjeta y móvil?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-content" id="faq-ans-4" role="region">
+                            <div class="faq-body">
+                                <p>Sí, aceptamos todo tipo de tarjetas de débito/crédito (Visa, Mastercard, American Express) y también pagos mediante dispositivos móviles con Apple Pay y Google Pay.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 5 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-5">
+                            <span>¿Tenéis opciones para llevar (Take Away)?</span>
+                            <i data-lucide="chevron-down" class="faq-arrow"></i>
+                        </button>
+                        <div class="faq-content" id="faq-ans-5" role="region">
+                            <div class="faq-body">
+                                <p>¡Por supuesto! Todo nuestro menú, incluyendo cafés, bebidas frías, tostadas y bollería se puede preparar con embalaje adaptado y sostenible para que te lo lleves adonde quieras.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-banner">
+            <div class="container text-center reveal-fade">
+                <h2 class="cta-title">¿Te apetece un buen café?</h2>
+                <p class="cta-subtitle">Disfruta de una experiencia única en un ambiente inmejorable en el centro de Sevilla.</p>
+                <div class="cta-buttons">
+                    <a href="https://maps.google.com/?q=Calle+San+Alonso+de+Orozco+9,+41003+Sevilla" target="_blank" class="btn btn-cta btn-primary-cta">
+                        <i data-lucide="map-pin"></i> Cómo llegar
+                    </a>
+                    <a href="tel:+34954271822" class="btn btn-cta btn-secondary-cta">
+                        <i data-lucide="phone"></i> Llamar
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location section-padding" id="ubicacion">
+            <div class="container grid-2-equal">
+                <div class="location-info reveal-left">
+                    <span class="section-tagline">Visítanos</span>
+                    <h2 class="section-title">Ubicación y Horario</h2>
+                    <p class="section-desc">Estamos ubicados en una zona tranquila y céntrica de Sevilla. Un enclave excelente para tu parada del día.</p>
+                    
+                    <div class="info-details-list">
+                        <div class="info-detail-item">
+                            <i data-lucide="map-pin" class="info-icon"></i>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Calle San Alonso de Orozco 9, 41003 Sevilla, España</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-detail-item">
+                            <i data-lucide="clock" class="info-icon"></i>
+                            <div>
+                                <h4>Horario de Apertura</h4>
+                                <p>Lunes a Domingo: 08:00 – 00:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-detail-item">
+                            <i data-lucide="phone" class="info-icon"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p><a href="tel:+34954271822" class="phone-link">+34 954 27 18 22</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="location-actions">
+                        <a href="https://maps.google.com/?q=Calle+San+Alonso+de+Orozco+9,+41003+Sevilla" target="_blank" class="btn btn-primary btn-large">
+                            <i data-lucide="external-link"></i> Abrir en Google Maps
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="map-wrapper reveal-right">
+                    <div class="map-container" id="map">
+                        <!-- Fallback / Map placeholder while Leaflet loads -->
+                        <div class="map-loading">
+                            <i data-lucide="map"></i>
+                            <span>Cargando mapa interactivo...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">SIBARIS</a>
+                <p class="footer-tagline">Café de especialidad, desayunos y brunch en Sevilla. Un espacio moderno para los amantes del buen café.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram de Sibaris"><i data-lucide="instagram"></i></a>
+                    <a href="#" aria-label="Facebook de Sibaris"><i data-lucide="facebook"></i></a>
+                    <a href="#" aria-label="TripAdvisor de Sibaris"><i data-lucide="message-square"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#reseñas">Reseñas</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>Calle San Alonso de Orozco 9, 41003 Sevilla</p>
+                <p>Tel: <a href="tel:+34954271822">+34 954 27 18 22</a></p>
+                <p>Email: <span class="placeholder-text">contacto@sibaris-sevilla.com</span></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p>&copy; 2026 Sibaris Sevilla. Todos los derechos reservados.</p>
+            <div class="footer-legal">
+                <span class="placeholder-text">Aviso Legal</span> | 
+                <span class="placeholder-text">Política de Privacidad</span> | 
+                <span class="placeholder-text">Política de Cookies</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <!-- Leaflet Map Library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <!-- Main Script -->
+    <script src="app.js" defer></script>
+</body>
+</html>
