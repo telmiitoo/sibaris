@@ -23,8 +23,8 @@
     <!-- Leaflet Map CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Stylesheets (Added version query for cache busting) -->
+    <link rel="stylesheet" href="styles.css?v=3">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -75,6 +75,7 @@
                 <ul>
                     <li><a href="#sobre-nosotros" class="nav-link">Sobre Nosotros</a></li>
                     <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+                    <li><a href="#instagram" class="nav-link">Ambiente</a></li>
                     <li><a href="#faq" class="nav-link">FAQ</a></li>
                     <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
                 </ul>
@@ -100,11 +101,11 @@
     </header>
 
     <main>
-        <!-- Hero Section (Pure Typography & Warm Ambiance Color) -->
+        <!-- Hero Section (Typographic and Warm Ambiance Gradient) -->
         <section class="hero-typographic" id="hero">
             <div class="container hero-content-typographic reveal-fade">
                 <h1 class="hero-title-typographic">El lugar perfecto para disfrutar de un gran café en Sevilla.</h1>
-                <p class="hero-subtitle-typographic">Desayunos, cafés, meriendas, servicio de heladería y retransmisiones de fútbol en pantallas en un ambiente acogedor en pleno centro.</p>
+                <p class="hero-subtitle-typographic">Desayunos, cafés, meriendas, heladería y retransmisiones de fútbol en pantallas en un ambiente acogedor en pleno centro.</p>
                 <div class="hero-buttons">
                     <a href="https://maps.google.com/?q=Calle+San+Alonso+de+Orozco+9,+41003+Sevilla" target="_blank" class="btn btn-hero btn-primary-hero">
                         <i data-lucide="map-pin"></i> Cómo llegar
@@ -132,31 +133,31 @@
                 
                 <div class="about-highlights-list reveal-right">
                     <div class="highlight-box">
-                        <i data-lucide="check" class="highlight-icon"></i>
+                        <i data-lucide="tv" class="highlight-icon"></i>
                         <div>
                             <h3>Fútbol en directo</h3>
                             <p>Retransmisión de partidos en pantallas de televisión en el local.</p>
                         </div>
                     </div>
                     <div class="highlight-box">
-                        <i data-lucide="check" class="highlight-icon"></i>
+                        <i data-lucide="ice-cream" class="highlight-icon"></i>
                         <div>
                             <h3>Servicio de Heladería</h3>
                             <p>Variedad de helados para consumir en el local o para llevar.</p>
                         </div>
                     </div>
                     <div class="highlight-box">
-                        <i data-lucide="check" class="highlight-icon"></i>
+                        <i data-lucide="clock" class="highlight-icon"></i>
                         <div>
                             <h3>Abierto todos los días</h3>
-                            <p>Te acompañamos de lunes a domingo hasta las 00:00.</p>
+                            <p>Te acompañamos de lunes a domingo hasta las 00:00 de la noche.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Specialties Section (Typographical Cards & Vector Icons) -->
+        <!-- Specialties Section (Typographic Glass Cards & Vector Icons) -->
         <section class="specialties section-padding bg-alt" id="especialidades">
             <div class="container">
                 <div class="section-header text-center reveal-fade">
@@ -167,7 +168,7 @@
                 
                 <div class="grid-3 reveal-up">
                     <!-- Specialty 1: Cafe -->
-                    <div class="specialty-card-typographic">
+                    <div class="specialty-card">
                         <div class="specialty-header-icon">
                             <i data-lucide="coffee"></i>
                         </div>
@@ -176,7 +177,7 @@
                     </div>
 
                     <!-- Specialty 2: Helados -->
-                    <div class="specialty-card-typographic">
+                    <div class="specialty-card">
                         <div class="specialty-header-icon">
                             <i data-lucide="ice-cream"></i>
                         </div>
@@ -185,7 +186,7 @@
                     </div>
 
                     <!-- Specialty 3: Tostadas -->
-                    <div class="specialty-card-typographic">
+                    <div class="specialty-card">
                         <div class="specialty-header-icon">
                             <i data-lucide="utensils"></i>
                         </div>
@@ -194,7 +195,7 @@
                     </div>
 
                     <!-- Specialty 4: Tartas -->
-                    <div class="specialty-card-typographic">
+                    <div class="specialty-card">
                         <div class="specialty-header-icon">
                             <i data-lucide="cake"></i>
                         </div>
@@ -203,7 +204,7 @@
                     </div>
 
                     <!-- Specialty 5: Futbol -->
-                    <div class="specialty-card-typographic">
+                    <div class="specialty-card">
                         <div class="specialty-header-icon">
                             <i data-lucide="tv"></i>
                         </div>
@@ -212,7 +213,7 @@
                     </div>
 
                     <!-- Specialty 6: Brunch -->
-                    <div class="specialty-card-typographic">
+                    <div class="specialty-card">
                         <div class="specialty-header-icon">
                             <i data-lucide="cup-soda"></i>
                         </div>
@@ -223,8 +224,30 @@
             </div>
         </section>
 
+        <!-- Instagram Live Atmosphere Section (NEW - EMBEDDED REAL REEL) -->
+        <section class="instagram-section section-padding" id="instagram">
+            <div class="container grid-2-equal">
+                <div class="instagram-content reveal-left">
+                    <span class="section-tagline">El Alma del Local</span>
+                    <h2 class="section-title">El ambiente de Sibaris</h2>
+                    <p class="section-desc">Queremos que sientas la cercanía y el gran ambiente de nuestro local. En nuestras redes compartimos el día a día, nuestras preparaciones de café y los mejores momentos.</p>
+                    <p class="section-desc">Echa un vistazo a esta publicación real directamente desde nuestro canal de Instagram y acompáñanos.</p>
+                    <div class="instagram-actions">
+                        <a href="https://www.instagram.com/sibarissevilla/" target="_blank" class="btn btn-primary btn-large">
+                            <i data-lucide="instagram"></i> Ver Instagram Oficial
+                        </a>
+                    </div>
+                </div>
+                <div class="instagram-media reveal-right">
+                    <div class="instagram-embed-container">
+                        <iframe src="https://www.instagram.com/reel/DPGv2FLCOn6/embed" class="instagram-iframe" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- FAQ Section -->
-        <section class="faq section-padding" id="faq">
+        <section class="faq section-padding bg-alt" id="faq">
             <div class="container container-narrow">
                 <div class="section-header text-center reveal-fade">
                     <span class="section-tagline">Dudas frecuentes</span>
@@ -388,6 +411,7 @@
                 <ul>
                     <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
                     <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#instagram">Ambiente</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#ubicacion">Ubicación</a></li>
                 </ul>

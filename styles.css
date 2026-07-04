@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIBARIS CAFE SEVILLA - TYPOGRAPHIC DESIGN SYSTEM & STYLESHEET
+   SIBARIS CAFE SEVILLA - TYPOGRAPHIC DESIGN SYSTEM & PREMIUM STYLESHEET
    Author: Professional UX/UI Web Design Studio
    ========================================================================== */
 
@@ -41,9 +41,9 @@
     --border-radius-xl: 24px;
     
     /* Shadows */
-    --shadow-subtle: 0 4px 20px rgba(111, 78, 55, 0.02);
-    --shadow-medium: 0 10px 30px rgba(31, 31, 31, 0.04);
-    --shadow-premium: 0 20px 40px rgba(111, 78, 55, 0.05);
+    --shadow-subtle: 0 4px 20px rgba(111, 78, 55, 0.03);
+    --shadow-medium: 0 10px 30px rgba(31, 31, 31, 0.05);
+    --shadow-premium: 0 20px 45px rgba(111, 78, 55, 0.08);
     
     /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -152,7 +152,7 @@ a:focus-visible, button:focus-visible {
 /* Grids */
 .grid-2-about {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: var(--space-xl);
     align-items: center;
 }
@@ -184,7 +184,7 @@ a:focus-visible, button:focus-visible {
 
 .section-title {
     font-family: var(--font-heading);
-    font-size: 3.25rem;
+    font-size: 3.35rem;
     font-weight: 300;
     line-height: 1.15;
     margin-bottom: var(--space-md);
@@ -425,7 +425,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   6. HERO SECTION (DARK COFFEE ATMOSPHERIC GRADIENT - ZERO PHOTOS)
+   6. HERO SECTION (DARK COFFEE GRADIENT)
    -------------------------------------------------------------------------- */
 .hero-typographic {
     position: relative;
@@ -437,14 +437,14 @@ a:focus-visible, button:focus-visible {
     overflow: hidden;
 }
 
-/* Ambient glow details to make it live and moody */
+/* Glow overlays for dynamic layout atmosphere */
 .hero-typographic::before {
     content: '';
     position: absolute;
     top: -10%;
     right: -10%;
-    width: 600px;
-    height: 600px;
+    width: 650px;
+    height: 650px;
     background: radial-gradient(circle, rgba(184, 137, 90, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
     pointer-events: none;
 }
@@ -452,11 +452,11 @@ a:focus-visible, button:focus-visible {
 .hero-typographic::after {
     content: '';
     position: absolute;
-    bottom: -20%;
+    bottom: -15%;
     left: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(111, 78, 55, 0.2) 0%, rgba(0, 0, 0, 0) 75%);
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(111, 78, 55, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
     pointer-events: none;
 }
 
@@ -471,7 +471,6 @@ a:focus-visible, button:focus-visible {
 
 .hero-title-typographic {
     font-family: var(--font-heading);
-    /* Golden details color matches premium brass style */
     color: var(--color-bg-white);
     font-size: 5.5rem;
     font-weight: 300;
@@ -561,8 +560,25 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   7. ABOUT US SECTION (CLEAN DOUBLE COLUMN FEATURES)
+   7. ABOUT US SECTION (CLEAN DOUBLE COLUMN HIGHLIGHTS)
    -------------------------------------------------------------------------- */
+.about {
+    position: relative;
+    background-color: var(--color-bg-main);
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(184, 137, 90, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+}
+
 .about-content-full {
     padding-right: var(--space-md);
 }
@@ -614,9 +630,9 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   8. SPECIALTIES SECTION (TYPOGRAPHIC CARDS & VECTOR ICONS)
+   8. SPECIALTIES SECTION (ELEGANT ALIGNED CARD CONTAINERS)
    -------------------------------------------------------------------------- */
-.specialty-card-typographic {
+.specialty-card {
     background-color: var(--color-bg-white);
     border-radius: var(--border-radius-xl);
     padding: var(--space-lg) var(--space-md);
@@ -632,8 +648,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .specialty-header-icon {
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     background-color: var(--color-bg-main);
     border-radius: 50%;
     display: flex;
@@ -645,11 +661,11 @@ a:focus-visible, button:focus-visible {
 }
 
 .specialty-header-icon i {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
 }
 
-.specialty-card-typographic h3 {
+.specialty-card h3 {
     font-family: var(--font-heading);
     font-size: 1.85rem;
     font-weight: 400;
@@ -658,7 +674,7 @@ a:focus-visible, button:focus-visible {
     letter-spacing: -0.01em;
 }
 
-.specialty-card-typographic p {
+.specialty-card p {
     font-size: 0.98rem;
     color: var(--color-text-muted);
     line-height: 1.6;
@@ -666,20 +682,65 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Card Hover animation */
-.specialty-card-typographic:hover {
-    transform: translateY(-8px);
+.specialty-card:hover {
+    transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-medium);
     border-color: var(--color-detail);
 }
 
-.specialty-card-typographic:hover .specialty-header-icon {
+.specialty-card:hover .specialty-header-icon {
     background-color: var(--color-cafe);
     color: var(--color-bg-white);
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* --------------------------------------------------------------------------
-   9. FAQ ACCORDION SECTION
+   9. INSTAGRAM EMBED & WIDGET (MOODY & ATMOSPHERIC)
+   -------------------------------------------------------------------------- */
+.instagram-section {
+    background-color: var(--color-bg-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-section::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(184, 137, 90, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+}
+
+.instagram-embed-container {
+    width: 100%;
+    max-width: 350px;
+    height: 580px;
+    margin: 0 auto;
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    border: 3px solid var(--color-beige);
+    transition: var(--transition-smooth);
+    background-color: var(--color-bg-white);
+}
+
+.instagram-embed-container:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--color-detail);
+    box-shadow: 0 25px 50px rgba(111, 78, 55, 0.12);
+}
+
+.instagram-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --------------------------------------------------------------------------
+   10. FAQ ACCORDION SECTION
    -------------------------------------------------------------------------- */
 .faq-accordion {
     max-width: var(--container-narrow-width);
@@ -755,7 +816,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   10. CTA BANNER SECTION
+   11. CTA BANNER SECTION
    -------------------------------------------------------------------------- */
 .cta-banner {
     position: relative;
@@ -828,7 +889,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   11. LOCATION, CONTACT & MAP SECTION
+   12. LOCATION, CONTACT & MAP SECTION
    -------------------------------------------------------------------------- */
 .info-details-list {
     margin: var(--space-lg) 0;
@@ -912,7 +973,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   12. FOOTER SECTION
+   13. FOOTER SECTION
    -------------------------------------------------------------------------- */
 .footer {
     background-color: #151515;
@@ -1025,7 +1086,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   13. MEDIA QUERIES (RESPONSIVE ENGINE)
+   14. MEDIA QUERIES (RESPONSIVE ENGINE)
    -------------------------------------------------------------------------- */
 
 /* Large screens (up to 1200px) */
@@ -1191,7 +1252,7 @@ a:focus-visible, button:focus-visible {
         grid-template-columns: 1fr;
     }
     
-    .specialty-card-typographic {
+    .specialty-card {
         max-width: 340px;
         margin: 0 auto;
     }
